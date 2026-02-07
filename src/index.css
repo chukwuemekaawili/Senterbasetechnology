@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Work+Sans:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* STIL Design System - Deep Tech Blue, Solar Orange, Energy Green */
+
+@layer base {
+  :root {
+    /* Primary: Deep Tech Blue */
+    --primary: 215 80% 25%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Solar Orange */
+    --secondary: 35 95% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Accent: Energy Green */
+    --accent: 145 60% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Backgrounds */
+    --background: 0 0% 100%;
+    --foreground: 215 30% 15%;
+
+    /* Cards */
+    --card: 0 0% 100%;
+    --card-foreground: 215 30% 15%;
+
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 30% 15%;
+
+    /* Muted */
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border & Input */
+    --border: 215 20% 88%;
+    --input: 215 20% 88%;
+    --ring: 215 80% 25%;
+
+    /* Radius */
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 215 30% 12%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 35 95% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 40% 20%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 215 30% 20%;
+    --sidebar-ring: 35 95% 55%;
+  }
+
+  .dark {
+    --primary: 35 95% 55%;
+    --primary-foreground: 215 30% 10%;
+
+    --secondary: 215 80% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 145 60% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --background: 215 30% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 215 30% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 215 30% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --muted: 215 25% 18%;
+    --muted-foreground: 215 15% 65%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 25% 22%;
+    --input: 215 25% 22%;
+    --ring: 35 95% 55%;
+
+    --sidebar-background: 215 30% 6%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 35 95% 55%;
+    --sidebar-primary-foreground: 215 30% 10%;
+    --sidebar-accent: 215 40% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 215 30% 15%;
+    --sidebar-ring: 35 95% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Subtle animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-from-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slide-up {
+  animation: slide-in-from-bottom 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+/* Scroll reveal animation - using intersection observer in components */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}

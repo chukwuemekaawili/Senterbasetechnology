@@ -1,0 +1,7 @@
+project_id = "adxnbdxlaonqftbocjqc"
+
+[functions.notify-lead]
+verify_jwt = false
+
+[functions.insert-lead]
+verify_jwt = false
